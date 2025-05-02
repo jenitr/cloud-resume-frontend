@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jenit R - Professional Resume</title>
+  <link rel="stylesheet" href="main.css" />
+  <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon" />
+</head>
+<body>
+  <header class="fade-in">
+    <h1>Jenit R</h1>
+    <p>Postgraduate Student | Embedded Test Engineer | Cloud Enthusiast</p>
+  </header>
+
+  <nav class="slide-in">
+    <a href="#profile">Profile</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#certifications">Certifications</a>
+    <a href="https://www.linkedin.com/in/jenitr" target="_blank">LinkedIn</a>
+  </nav>
+
+  <main class="container fade-in">
+    <section id="profile">
+      <h2>Profile</h2>
+      <p>Postgraduate student pursuing a Master’s in Information Systems with over 2 years of experience in Embedded Testing at Vertiv Energy. Certified AWS Solutions Architect – Associate and ISTQB Foundation Level in Software Testing, with a strong foundation in cloud computing and Test Engineering. Seeking full-time opportunities to apply and grow my skills in cloud-based solutions and test automation frameworks.</p>
+    </section>
+
+    <section id="experience">
+      <h2>Professional Experience</h2>
+      <h3>Vertiv Energy – Westerville, Ohio</h3>
+      <p><em>Engineering Intern – Product Development & Engineering (ICOM Board Test Automation)</em><br>May 2024 – Sep 2024</p>
+      <ul>
+        <li>Automated web-based test cases using Robot Framework, reducing test time and improving accuracy.</li>
+        <li>Modularized core functions for reuse, improving maintainability.</li>
+        <li>Created Python scripts to capture and visualize real-time data, validate results, and automate testing.</li>
+        <li>Streamlined test workflows by integrating Python scripts with Robot Framework.</li>
+      </ul>
+
+      <h3>Vertiv Energy – Pune, India</h3>
+      <p><em>Associate Engineer – Embedded Testing</em><br>June 2021 – July 2023</p>
+      <ul>
+        <li>Performed acceptance, regression, API, and data mapping testing for communication cards.</li>
+        <li>Enabled India team to perform 95% of testing independently by configuring lab setups.</li>
+        <li>Worked with protocols such as Modbus, BACnet, SNMP, LLDP, and serial communication.</li>
+        <li>Used Postman and Wireshark for API testing and network protocol analysis.</li>
+        <li>Contributed to testing and analysis of UPS devices like GXT4 and GXT5.</li>
+      </ul>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <h3>Cloud Resume Challenge</h3>
+      <ul>
+        <li>Developed and deployed a static website using AWS S3, Route 53, CloudFront.</li>
+        <li>Created a visitor counter using API Gateway, Lambda (Python), and DynamoDB.</li>
+        <li>CI/CD implemented with GitHub Actions and AWS SAM.</li>
+      </ul>
+    </section>
+
+    <section id="skills">
+      <h2>Technical Skills</h2>
+      <ul>
+        <li><strong>Programming:</strong> Python</li>
+        <li><strong>Databases:</strong> MySQL, DynamoDB</li>
+        <li><strong>Libraries:</strong> NumPy, pandas, matplotlib</li>
+        <li><strong>Tools:</strong> Robot Framework, Postman, Wireshark, TestRail, Rally</li>
+        <li><strong>Cloud:</strong> AWS S3, Lambda, API Gateway, Route 53, DynamoDB, CloudFront, AWS SAM, GitHub Actions</li>
+        <li><strong>Protocols:</strong> MODBUS, BACnet, SNMP, LLDP</li>
+      </ul>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <ul>
+        <li><strong>Pace University</strong> – MS in Information Systems, May 2025</li>
+        <li><strong>Mumbai University</strong> – BE in Electronics & Telecommunication, Oct 2020</li>
+      </ul>
+    </section>
+
+    <section id="certifications">
+      <h2>Certifications</h2>
+      <ul>
+        <li>AWS Certified Solutions Architect – Associate</li>
+        <li>ISTQB Foundation Level – Software Testing</li>
+        <li>Post Graduate Diploma in Embedded Systems</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="fade-in">
+    <p>&copy; 2025 Jenit R | 
+      <a href="https://www.linkedin.com/in/jenitr" target="_blank">LinkedIn</a>
+    </p>
+    <p id="visitor">👁 Visitors: <span id="replaceme">Loading...</span></p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      fetch('https://hayzhxbwn0.execute-api.us-east-1.amazonaws.com/count')
+        .then(response => response.json())
+        .then((data) => {
+          document.getElementById('replaceme').innerText = data.count;
+        })
+        .catch(() => {
+          document.getElementById('replaceme').innerText = 'Unavailable';
+        });
+
+      fetch('https://hayzhxbwn0.execute-api.us-east-1.amazonaws.com/count', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({})
+      })
+        .then(response => response.json())
+        .then((data) => {
+          console.log('Visitor count updated:', data.count);
+        })
+        .catch(error => console.error('Error incrementing visitor count:', error));
+    });
+  </script>
+</body>
+</html>
